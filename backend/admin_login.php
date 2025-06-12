@@ -8,8 +8,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
 
     // Simple static credentials; adjust as needed
     if ($username === 'admin' && $password === 'secret') {
